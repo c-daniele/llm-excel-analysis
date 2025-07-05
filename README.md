@@ -13,7 +13,7 @@ Instead of trying to force RAG into a structured data world, I've built a system
 
 Here's the architecture:
 
-{{< mermaid >}}
+```mermaid
 graph TD;
     A[Excel File Upload] --> B[LLM Metadata Analysis];
     B --> C[Column Type Detection];
@@ -30,7 +30,7 @@ graph TD;
     style A fill:#e1f5fe;
     style F fill:#e8f5e8;
     style J fill:#fff3e0;
-{{< /mermaid >}}
+```
 
 As for the DB, I used SQLite for simplicity, but this architecture can be adapted to any SQL database.
 As for the LLM, I used OpenAI's gpt-4.1-mini, but you can use any comparable LLM.
@@ -60,14 +60,14 @@ Based on column names, suggest:
 ### 2. **Type Detection Engine**
 Combines LLM analysis with statistical sampling to determine the correct SQL data types:
 
-{{< mermaid >}}
+```mermaid
 graph LR
     A[Sample Data] --> B[LLM Analysis]
     A --> C[Statistical Analysis]
     B --> D[Final Type Decision]
     C --> D
     D --> E[SQL Schema]
-{{< /mermaid >}}
+```
 
 At the end of this process, the system generates a SQL schema that accurately represents the data types and relationships in the Excel file and executes it to create the table in the database.
 
