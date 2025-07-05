@@ -1,0 +1,8 @@
+pandas
+numpy
+openpyxl
+python-dotenv
+pydantic
+langchain
+langchain-openai
+tabulate
